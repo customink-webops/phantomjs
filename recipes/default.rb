@@ -41,7 +41,7 @@ end
 # Install phantomjs
 execute 'Install phantomjs' do
   command "tar -xvjf /usr/local/src/phantomjs-#{node['phantomjs']['version']}.tar.bz2 -C /usr/local/"
-  not_if 'test -e /usr/local/phantomjs'
+  not_if "test -e /usr/local/phantomjs-#{node['phantomjs']['version']}"
 end
 
 # Set up the symbolic link
