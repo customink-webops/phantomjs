@@ -1,9 +1,3 @@
-PATH
-  remote: /Users/svargo/Development/fauxhai
-  specs:
-    fauxhai (0.0.1.alpha)
-      chef
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -33,6 +27,8 @@ GEM
     coderay (0.9.8)
     diff-lcs (1.1.3)
     erubis (2.7.0)
+    fauxhai (0.0.2.alpha)
+      chef
     foodcritic (1.4.0)
       gherkin (~> 2.8.0)
       gist (~> 2.0.4)
@@ -111,6 +107,6 @@ PLATFORMS
 DEPENDENCIES
   chef
   chefspec
-  fauxhai!
+  fauxhai
   foodcritic
   rake
