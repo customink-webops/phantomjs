@@ -12,8 +12,12 @@ def cookbook_name
   File.basename(File.dirname(__FILE__))
 end
 
-# default task
-task :default => ['prepare_sandbox', 'knife', 'foodcritic', 'spec']
+# test task
+desc 'Run the default tests'
+task :test =>  ['prepare_sandbox', 'knife', 'foodcritic', 'spec']
+
+# default task (test)
+task :default => :test
 
 # knife test
 desc 'Runs knife cookbook test'
