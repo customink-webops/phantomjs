@@ -29,23 +29,26 @@ when 'centos'
   end
 end
 
+arch     = node[:kernel][:machine]
+basename = "phantomjs-#{node['phantomjs']['version']}-linux-#{arch}-dynamic"
+
 # Download the tarball
-remote_file "/usr/local/src/phantomjs-#{node['phantomjs']['version']}.tar.bz2" do
+remote_file "/usr/local/src/#{basename}.tar.bz2" do
   action :create_if_missing
   backup false
-  checksum 'b429c15007e1ddcb43dfbb4b4b72f3e22906aad2'
-  mode '0644'
-  source "http://phantomjs.googlecode.com/files/phantomjs-#{node['phantomjs']['version']}.tar.bz2"
+  mode 0644
+  checksum node['phantomjs']['checksum'] if node['phantomjs']['checksum']
+  source "https://phantomjs.googlecode.com/files/#{basename}.tar.bz2"
 end
 
 # Install phantomjs
 execute 'Install phantomjs' do
-  command "tar -xvjf /usr/local/src/phantomjs-#{node['phantomjs']['version']}.tar.bz2 -C /usr/local/"
-  not_if "test -e /usr/local/phantomjs-#{node['phantomjs']['version']}"
+  command "tar -xvjf /usr/local/src/#{basename}.tar.bz2 -C /usr/local/"
+  not_if "test -d /usr/local/#{basename}"
 end
 
 # Set up the symbolic link
 link '/usr/local/bin/phantomjs' do
   link_type :symbolic
-  to "/usr/local/phantomjs-#{node['phantomjs']['version']}/bin/phantomjs"
+  to "/usr/local/#{basename}/bin/phantomjs"
 end
