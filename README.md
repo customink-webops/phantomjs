@@ -6,7 +6,7 @@ Installs the phantomjs cookbook and necessary packages. This repository also fea
 
 Attributes
 ----------
-- `default['phantomjs']['version']` - The FULL version to install
+- `default['phantomjs']['version']` - the version number to install
 
 License and Authors
 -------------------

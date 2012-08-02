@@ -29,14 +29,13 @@ when 'centos'
   end
 end
 
-arch     = node[:kernel][:machine]
-basename = "phantomjs-#{node['phantomjs']['version']}-linux-#{arch}-dynamic"
+basename = "phantomjs-#{node['phantomjs']['version']}-linux-#{node['kernel']['machine']}-dynamic"
 
 # Download the tarball
 remote_file "/usr/local/src/#{basename}.tar.bz2" do
   action :create_if_missing
   backup false
-  mode 0644
+  mode '0644'
   checksum node['phantomjs']['checksum'] if node['phantomjs']['checksum']
   source "https://phantomjs.googlecode.com/files/#{basename}.tar.bz2"
 end
@@ -49,6 +48,5 @@ end
 
 # Set up the symbolic link
 link '/usr/local/bin/phantomjs' do
-  link_type :symbolic
   to "/usr/local/#{basename}/bin/phantomjs"
 end
