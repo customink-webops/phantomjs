@@ -18,12 +18,12 @@
 #
 
 # Packages
-case node['platform']
-when 'ubuntu'
+case node['platform_family']
+when 'debian'
   %w(fontconfig libfreetype6).each do |package|
     package package
   end
-when 'centos'
+when 'fedora','rhel'
   %w(fontconfig freetype).each do |package|
     package package
   end

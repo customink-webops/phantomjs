@@ -3,11 +3,11 @@ maintainer_email 'webops@customink.com'
 license 'Apache 2.0'
 description 'Installs/Configures phantomjs'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version '0.0.6'
+version '0.0.7'
 
-recipe 'phantomjs::default', 'Install phantomjs'
+recipe 'phantomjs::default', 'Install phantomjs binary'
 
-%w(centos ubuntu).each do |os|
+%w(amazon centos debian fedora oracle rhel scientific ubuntu).each do |os|
   supports os
 end
 
