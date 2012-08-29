@@ -18,7 +18,7 @@
 #
 
 # Packages
-case platform_family
+case node['platform_family']
 when 'debian'
   %w(fontconfig libfreetype6).each do |package|
     package package
