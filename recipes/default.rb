@@ -29,7 +29,7 @@ when 'fedora','rhel'
   end
 end
 
-basename = "phantomjs-#{node['phantomjs']['version']}-linux-#{node['kernel']['machine']}-dynamic"
+basename = "phantomjs-#{node['phantomjs']['version']}-linux-#{node['kernel']['machine']}"
 
 # Download the tarball
 remote_file "/usr/local/src/#{basename}.tar.bz2" do
