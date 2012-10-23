@@ -1,9 +1,10 @@
+name 'phantomjs'
 maintainer 'CustomInk'
 maintainer_email 'webops@customink.com'
 license 'Apache 2.0'
 description 'Installs/Configures phantomjs'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version '0.0.7'
+version '0.0.8'
 
 recipe 'phantomjs::default', 'Install phantomjs binary'
 
