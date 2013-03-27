@@ -22,21 +22,19 @@ describe 'phantomjs::default' do
   end
 
   let(:runner) do
-    ChefSpec::ChefRunner.new do |node|
-      node.override['phantomjs']['version'] = '1.7.0'
-    end.converge('phantomjs::default')
+    ChefSpec::ChefRunner.new.converge('phantomjs::default')
   end
 
   it 'should fetch the correct remote_file' do
-    runner.should create_remote_file '/usr/local/src/phantomjs-1.7.0-linux-i386.tar.bz2'
+    runner.should create_remote_file '/usr/local/src/phantomjs-1.9.0-linux-i386.tar.bz2'
   end
 
   it 'should extract the binary' do
-    runner.should execute_command 'tar -xvjf /usr/local/src/phantomjs-1.7.0-linux-i386.tar.bz2 -C /usr/local/'
+    runner.should execute_command 'tar -xvjf /usr/local/src/phantomjs-1.9.0-linux-i386.tar.bz2 -C /usr/local/'
   end
 
   it 'should symlink the binary to /usr/local/bin' do
     runner.should create_link '/usr/local/bin/phantomjs'
-    runner.link('/usr/local/bin/phantomjs').should link_to('/usr/local/phantomjs-1.7.0-linux-i386/bin/phantomjs')
+    runner.link('/usr/local/bin/phantomjs').should link_to('/usr/local/phantomjs-1.9.0-linux-i386/bin/phantomjs')
   end
 end
