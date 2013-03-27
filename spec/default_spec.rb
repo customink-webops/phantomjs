@@ -22,9 +22,7 @@ describe 'phantomjs::default' do
   end
 
   let(:runner) do
-    ChefSpec::ChefRunner.new do |node|
-      node.override['phantomjs']['version'] = '1.7.0'
-    end.converge('phantomjs::default')
+    ChefSpec::ChefRunner.new.converge('phantomjs::default')
   end
 
   it 'should fetch the correct remote_file' do
