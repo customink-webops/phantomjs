@@ -27,6 +27,10 @@ when 'fedora','rhel'
   %w(fontconfig freetype).each do |package|
     package package
   end
+when 'gentoo'
+  %w(fontconfig freetype).map {|p| "media-libs/#{p}"}.each do |package|
+    package package
+  end
 end
 
 basename = "phantomjs-#{node['phantomjs']['version']}-linux-#{node['kernel']['machine']}"
