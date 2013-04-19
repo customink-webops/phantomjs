@@ -35,6 +35,15 @@ end
 
 basename = "phantomjs-#{node['phantomjs']['version']}-linux-#{node['kernel']['machine']}"
 
+# ensure we have somewhere to stick the src
+directory "/usr/local/src" do
+  action :create
+  mode '0755'
+  owner 'root'
+  group 'root'
+end
+
+
 # Download the tarball
 remote_file "/usr/local/src/#{basename}.tar.bz2" do
   action :create_if_missing
