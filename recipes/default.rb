@@ -27,9 +27,22 @@ when 'fedora','rhel'
   %w(fontconfig freetype).each do |package|
     package package
   end
+when 'gentoo'
+  %w(fontconfig freetype).map {|p| "media-libs/#{p}"}.each do |package|
+    package package
+  end
 end
 
 basename = "phantomjs-#{node['phantomjs']['version']}-linux-#{node['kernel']['machine']}"
+
+# ensure we have somewhere to stick the src
+directory "/usr/local/src" do
+  action :create
+  mode '0755'
+  owner 'root'
+  group 'root'
+end
+
 
 # Download the tarball
 remote_file "/usr/local/src/#{basename}.tar.bz2" do
