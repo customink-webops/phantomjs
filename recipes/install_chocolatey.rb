@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: phantomjs
-# Recipe:: default
+# Recipe:: install_chocolatey
 #
 # Copyright 2013, Youscribe
 #
@@ -17,4 +17,6 @@
 # limitations under the License.
 #
 
-include_recipe "phantomjs::install_#{node['phantomjs']['install_method']}"
+include_recipe "chocolatey"
+
+chocolatey "phantomjs"
