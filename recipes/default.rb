@@ -31,22 +31,7 @@ end
 
 basename = "phantomjs-#{node['phantomjs']['version']}-linux-#{node['kernel']['machine']}"
 
-# Download the tarball
-remote_file "/usr/local/src/#{basename}.tar.bz2" do
-  action :create_if_missing
-  backup false
-  mode '0644'
-  checksum node['phantomjs']['checksum'] if node['phantomjs']['checksum']
-  source "https://phantomjs.googlecode.com/files/#{basename}.tar.bz2"
-end
-
-# Install phantomjs
-execute 'Install phantomjs' do
-  command "tar -xvjf /usr/local/src/#{basename}.tar.bz2 -C /usr/local/"
-  not_if "test -d /usr/local/#{basename}"
-end
-
-# Set up the symbolic link
-link '/usr/local/bin/phantomjs' do
-  to "/usr/local/#{basename}/bin/phantomjs"
+ark 'phantomjs' do
+  url "https://phantomjs.googlecode.com/files/#{basename}.tar.bz2"
+  has_binaries ['bin/phantomjs']
 end

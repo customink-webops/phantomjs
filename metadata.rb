@@ -16,3 +16,5 @@ attribute 'version',
   :display_name => 'Version',
   :description => 'The Version of phantomjs to install',
   :default => '1.9.0'
+
+depends "ark"
