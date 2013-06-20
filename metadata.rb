@@ -8,7 +8,7 @@ version '0.1.0'
 
 recipe 'phantomjs::default', 'Install phantomjs binary'
 
-%w(amazon centos debian fedora oracle rhel scientific ubuntu).each do |os|
+%w(amazon centos debian fedora gentoo oracle rhel scientific ubuntu).each do |os|
   supports os
 end
 
