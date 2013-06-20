@@ -27,12 +27,25 @@ when 'fedora','rhel'
   %w(fontconfig freetype).each do |package|
     package package
   end
+when 'gentoo'
+  %w{media-libs/fontconfig media-libs/freetype}.each do |package|
+    package package
+  end
 end
 
+src_dir = '/usr/local/src'
 basename = "phantomjs-#{node['phantomjs']['version']}-linux-#{node['kernel']['machine']}"
 
+# ensure the directory exists
+directory src_dir do
+  action :create
+  mode '0755'
+  owner 'root'
+  group 'root'
+end
+
 # Download the tarball
-remote_file "/usr/local/src/#{basename}.tar.bz2" do
+remote_file "#{src_dir}/#{basename}.tar.bz2" do
   action :create_if_missing
   backup false
   mode '0644'
@@ -42,7 +55,7 @@ end
 
 # Install phantomjs
 execute 'Install phantomjs' do
-  command "tar -xvjf /usr/local/src/#{basename}.tar.bz2 -C /usr/local/"
+  command "tar -xvjf #{src_dir}/#{basename}.tar.bz2 -C /usr/local/"
   not_if "test -d /usr/local/#{basename}"
 end
 
