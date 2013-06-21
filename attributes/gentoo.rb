@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: phantomjs
-# Recipe:: default
+# Attribute:: gentoo
 #
 # Copyright 2012-2013, Seth Vargo (sethvargo@gmail.com)
 # Copyright 2012-2013, CustomInk
@@ -17,9 +17,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+#
+# This is the Gentoo attributes file.
+#
 
-begin
-  include_recipe "phantomjs::#{node['phantomjs']['install_method']}"
-rescue Chef::Exceptions::RecipeNotFound
-  Chef::Log.warn "`#{node['phantomjs']['install_method']}` is not a supported install method for phantomjs!"
-end
+return unless %w(gentoo).include?(node['platform_family'])
+
+# The list of packages to install on gentoo-based systems
+default['phantomjs']['packages'] = [
+  'media-libs/fontconfig',
+  'media-libs/freetype',
+]
