@@ -1,1 +1,11 @@
 tmp
+.rspec
+.rvmrc
+.rbenv-verson
+.ruby-version
+vendor
+.bundle
+bin
+.chef
+.kitchen/
+.kitchen.local.yml
