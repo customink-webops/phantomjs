@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: phantomjs
-# Recipe:: default
+# Recipe:: structure
 #
 # Copyright 2012-2013, Seth Vargo (sethvargo@gmail.com)
 # Copyright 2012-2013, CustomInk
@@ -17,9 +17,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+# Ensure the supporting directory structures are present.
+#
 
-begin
-  include_recipe "phantomjs::#{node['phantomjs']['install_method']}"
-rescue Chef::Exceptions::RecipeNotFound
-  Chef::Log.warn "`#{node['phantomjs']['install_method']}` is not a supported install method for phantomjs!"
+directory node['phantomjs']['src_dir'] do
+  mode    '0755'
+  owner   'root'
+  group   'root'
 end

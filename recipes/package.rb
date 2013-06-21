@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: phantomjs
-# Recipe:: default
+# Recipe:: package
 #
 # Copyright 2012-2013, Seth Vargo (sethvargo@gmail.com)
 # Copyright 2012-2013, CustomInk
@@ -17,9 +17,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+# Install PhantomJS as a package
+#
 
-begin
-  include_recipe "phantomjs::#{node['phantomjs']['install_method']}"
-rescue Chef::Exceptions::RecipeNotFound
-  Chef::Log.warn "`#{node['phantomjs']['install_method']}` is not a supported install method for phantomjs!"
+case node['platform_family']
+when 'windows'
+  include_recipe 'chocolatey'
+  chocolatey   node['phantomjs']['package_name']
+else
+  package   node['phantomjs']['package_name']
 end

@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: phantomjs
-# Recipe:: default
+# Attribute:: rehl
 #
 # Copyright 2012-2013, Seth Vargo (sethvargo@gmail.com)
 # Copyright 2012-2013, CustomInk
@@ -17,9 +17,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+#
+# This is the Red Hat and Fedora attributes file.
+#
 
-begin
-  include_recipe "phantomjs::#{node['phantomjs']['install_method']}"
-rescue Chef::Exceptions::RecipeNotFound
-  Chef::Log.warn "`#{node['phantomjs']['install_method']}` is not a supported install method for phantomjs!"
-end
+return unless %w(rhel fedora).include?(node['platform_family'])
+
+# The list of packages to install on redhat-based systems
+default['phantomjs']['packages'] = [
+  'fontconfig',
+  'freetype',
+]
