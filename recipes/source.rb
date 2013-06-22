@@ -40,7 +40,7 @@ remote_file "#{src_dir}/#{basename}.tar.bz2" do
   backup    false
   source    "#{base_url}/#{basename}.tar.bz2"
   checksum  checksum if checksum
-  not_if    { `/usr/local/bin/phantomjs && /usr/local/bin/phantomjs --version`.strip == version }
+  not_if    { ::File.exists?('/usr/local/bin/phantomjs') && `/usr/local/bin/phantomjs --version`.chomp == version }
   notifies  :run, 'execute[phantomjs-install]', :immediately
 end
 
