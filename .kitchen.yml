@@ -4,24 +4,16 @@ driver_config:
   require_chef_omnibus: true
 
 platforms:
-  - name: ubuntu-12.04
-    driver_config:
-      box: opscode-ubuntu-12.04
-      box_url: https://opscode-vm.s3.amazonaws.com/vagrant/opscode_ubuntu-12.04_provisionerless.box
   - name: ubuntu-10.04
-    driver_config:
-      box: opscode-ubuntu-10.04
-      box_url: https://opscode-vm.s3.amazonaws.com/vagrant/opscode_ubuntu-10.04_provisionerless.box
-  - name: centos-6.4
-    driver_config:
-      box: opscode-centos-6.4
-      box_url: https://opscode-vm.s3.amazonaws.com/vagrant/opscode_centos-6.4_provisionerless.box
+  - name: ubuntu-12.04
+  - name: ubuntu-12.10
+  - name: ubuntu-13.04
   - name: centos-5.9
-    driver_config:
-      box: opscode-centos-5.9
-      box_url: https://opscode-vm.s3.amazonaws.com/vagrant/opscode_centos-5.9_provisionerless.box
+  - name: centos-6.4
+  - name: debian-7.1.0
 
 suites:
-  - name: default
-    run_list: ["recipe[phantomjs]"]
-    attributes: {}
+  - name: source
+    run_list: ["recipe[phantomjs::source]"]
+  - name: package
+    run_list: ["recipe[phantomjs::package]"]
