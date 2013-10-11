@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: phantomjs
-# Attribute:: rehl
+# Attribute:: rhel
 #
 # Copyright 2012-2013, Seth Vargo (sethvargo@gmail.com)
 # Copyright 2012-2013, CustomInk
