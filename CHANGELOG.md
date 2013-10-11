@@ -1,4 +1,9 @@
 phantomjs CHANGELOG
+
+v1.0.3
+------
+- Update default PhantomJS version to 1.9.2 [@TheDude05](https://github.com/TheDude05)
+
 ===================
 v1.0.1
 ------
