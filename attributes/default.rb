@@ -24,7 +24,7 @@
 #
 
 # The version of phantomjs to install
-default['phantomjs']['version'] = '1.9.2'
+default['phantomjs']['version'] = '1.9.7'
 
 # The list of packages to install
 default['phantomjs']['packages'] = []
@@ -42,7 +42,7 @@ default['phantomjs']['package_name'] = 'phantomjs'
 default['phantomjs']['src_dir'] = '/usr/local/src'
 
 # The base URL to download tarball from
-default['phantomjs']['base_url'] = 'https://phantomjs.googlecode.com/files'
+default['phantomjs']['base_url'] = 'https://bitbucket.org/ariya/phantomjs/downloads'
 
 # The name of the tarball to download (this is automatically calculated from
 # the phantomjs version and kernel type)
