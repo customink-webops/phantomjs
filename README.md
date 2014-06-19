@@ -8,7 +8,7 @@ Installs the phantomjs cookbook and necessary packages. This repository also fea
 
 Installation
 ------------
-Add the `phamtomjs` cookbook to your `Berksfile`:
+Add the `phantomjs` cookbook to your `Berksfile`:
 
 ```ruby
 cookbook 'phantomjs'
