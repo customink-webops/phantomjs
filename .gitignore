@@ -1,0 +1,13 @@
+tmp
+.rspec
+.rvmrc
+.rbenv-verson
+.ruby-version
+vendor
+.bundle
+bin
+.chef
+.kitchen/
+.kitchen.local.yml
+Gemfile.lock
+Berksfile.lock

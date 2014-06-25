@@ -1,0 +1,19 @@
+---
+driver_plugin: vagrant
+driver_config:
+  require_chef_omnibus: true
+
+platforms:
+  - name: ubuntu-10.04
+  - name: ubuntu-12.04
+  - name: ubuntu-12.10
+  - name: ubuntu-13.04
+  - name: centos-5.9
+  - name: centos-6.4
+  - name: debian-7.1.0
+
+suites:
+  - name: source
+    run_list: ["recipe[phantomjs::source]"]
+  - name: package
+    run_list: ["recipe[phantomjs::package]"]
