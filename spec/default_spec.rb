@@ -6,7 +6,7 @@ describe 'phantomjs::default' do
   let(:src_dir)  { '/src' }
   let(:basename) { 'phantomjs-1.0.0-linux-x86' }
 
-  let(:runner) {
+  let(:runner) do
     runner = ChefSpec::ChefRunner.new(platform: 'ubuntu', version: '12.04')
 
     runner.node.set['phantomjs']['version']  = version
@@ -15,7 +15,7 @@ describe 'phantomjs::default' do
     runner.node.set['phantomjs']['basename'] = basename
 
     runner.converge('phantomjs::default')
-  }
+  end
 
   it 'includes the `structure` recipe' do
     expect(runner).to include_recipe('phantomjs::structure')

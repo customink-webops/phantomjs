@@ -12,4 +12,4 @@ end
 
 depends 'build-essential'
 depends 'chocolatey'
-depends "ark"
+depends 'ark'
