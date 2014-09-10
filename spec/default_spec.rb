@@ -7,7 +7,7 @@ describe 'phantomjs::default' do
   let(:basename) { 'phantomjs-1.0.0-linux-x86' }
 
   let(:runner) {
-    runner = ChefSpec::ChefRunner.new(platform: 'ubuntu', version: '12.04')
+    runner = ChefSpec::ChefRunner.new(:platform => 'ubuntu', :version => '12.04')
 
     runner.node.set['phantomjs']['version']  = version
     runner.node.set['phantomjs']['base_url'] = base_url
