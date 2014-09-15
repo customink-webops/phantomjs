@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'phantomjs::structure' do
   let(:src_dir) { '/foo/bar/zip' }
   let(:runner) do
-    runner = ChefSpec::ChefRunner.new(platform: 'ubuntu', version: '12.04')
+    runner = ChefSpec::ChefRunner.new(:platform => 'ubuntu', :version => '12.04')
     runner.node.set['phantomjs']['src_dir'] = src_dir
     runner.converge('phantomjs::structure')
   end
