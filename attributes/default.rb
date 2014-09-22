@@ -46,4 +46,4 @@ default['phantomjs']['base_url'] = 'https://bitbucket.org/ariya/phantomjs/downlo
 
 # The name of the tarball to download (this is automatically calculated from
 # the phantomjs version and kernel type)
-default['phantomjs']['basename'] = "phantomjs-#{node['phantomjs']['version']}-linux-#{node['kernel']['machine']}"
+default['phantomjs']['basename'] = "phantomjs-%{version}-linux-%{machine}"
