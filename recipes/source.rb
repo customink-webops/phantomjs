@@ -28,9 +28,9 @@ include_recipe 'phantomjs::structure'
 node['phantomjs']['packages'].each { |name| package name }
 
 version  = node['phantomjs']['version']
-base_url = node['phantomjs']['base_url']
+base_url = node['phantomjs']['base_url'] % { version: version }
 src_dir  = node['phantomjs']['src_dir']
-basename = node['phantomjs']['basename']
+basename = node['phantomjs']['basename'] % { version: version, machine: node['kernel']['machine'] }
 checksum = node['phantomjs']['checksum']
 
 remote_file "#{src_dir}/#{basename}.tar.bz2" do
